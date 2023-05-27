@@ -28,17 +28,26 @@ class RockPaperScissors extends Component {
     score: 0,
     choiceId: '',
     choiceUrl: '',
-    randomIndex: 0,
     showResult: false,
   }
 
-  onClickPlayAgain = () => {
+  componentDidMount() {
+    this.getRandomValues()
+  }
+
+  getRandomValues = () => {
     const {choicesList} = this.props
-    const randomIndex = Math.ceil(Math.random() * choicesList.length - 1)
-    this.setState(prevState => ({
-      showResult: !prevState.showResult,
-      randomIndex,
-    }))
+    const randomIndex = Math.floor(Math.random() * choicesList.length)
+    this.setState({randomIndex})
+  }
+
+  onClickPlayAgain = () => {
+    this.setState(
+      prevState => ({
+        showResult: !prevState.showResult,
+      }),
+      this.getRandomValues,
+    )
   }
 
   onGameBtn = (clickedId, url) => {
@@ -139,17 +148,12 @@ class RockPaperScissors extends Component {
 
   render() {
     const {score, showResult} = this.state
-
     return (
       <GameContainer>
         <ResponseContainer>
           <Header score={score} />
           {showResult ? this.renderGameResultView() : this.renderGameView()}
-          <Popup
-            modal
-            trigger={<PopupButton type="button">RULES</PopupButton>}
-            className="popup-content"
-          >
+          <Popup modal trigger={<PopupButton type="button">RULES</PopupButton>}>
             {close => (
               <ModelContainer>
                 <CloseButton type="button" onClick={() => close()}>

@@ -65,7 +65,8 @@ export const CloseButton = styled.button`
 export const PopupImage = styled.img`
   width: 200px;
   @media screen and (min-width: 768px) {
-    width: 400px;
+    width: 90%;
+    height: 60%;
   }
 `
 export const ResultViewContainer = styled.div`
@@ -85,10 +86,10 @@ export const IndividualContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-right: 20px;
 `
 export const GameImage = styled.img`
   width: 150px;
-  margin-right: 20px;
 `
 export const GameViewHeading = styled.p`
   font-size: 25px;
