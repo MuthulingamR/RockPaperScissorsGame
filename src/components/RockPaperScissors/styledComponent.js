@@ -6,11 +6,11 @@ export const GameContainer = styled.div`
   padding: 40px;
   background-color: #223a5f;
   min-height: 100vh;
+  min-width: 100vw;
 `
 export const ResponseContainer = styled.div`
   display: flex;
   flex-direction: column;
-
   justify-content: space-between;
   width: 80%;
 `
@@ -18,7 +18,7 @@ export const InnerGameContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-self: center;
-  width: 50%;
+  width: 100%;
   justify-content: center;
   align-items: center;
 `
@@ -64,13 +64,15 @@ export const CloseButton = styled.button`
 
 export const PopupImage = styled.img`
   width: 200px;
+  height: 200px;
   @media screen and (min-width: 768px) {
     width: 90%;
-    height: 60%;
+    height: 70%;
   }
 `
 export const ResultViewContainer = styled.div`
   width: 80%;
+  align-self: center;
   justify-content: center;
   align-self: center;
   display: flex;
@@ -89,13 +91,19 @@ export const IndividualContainer = styled.div`
   margin-right: 20px;
 `
 export const GameImage = styled.img`
-  width: 150px;
+  width: 90px;
+  @media screen and (min-width: 768px) {
+    width: 150px;
+  }
 `
 export const GameViewHeading = styled.p`
-  font-size: 25px;
+  font-size: 15px;
   font-family: 'Roboto';
   text-align: center;
   color: #ffffff;
+  @media screen and (min-width: 768px) {
+    font-size: 25px;
+  }
 `
 export const GameViewResult = styled.p`
   font-size: 30px;
